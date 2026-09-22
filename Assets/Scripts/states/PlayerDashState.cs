@@ -31,7 +31,6 @@ public class PlayerDashState : EntityState
 
     public override void Update()
     {
-        Debug.Log("Timer:" + timer);
         if (timer >= player.dashTime)
         {
             if (player.isGrounded)

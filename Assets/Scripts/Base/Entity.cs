@@ -6,7 +6,7 @@ public abstract class Entity : MonoBehaviour
 {
     public Animator animator;
     public StateMachine stateMachine;
-    public Rigidbody2D rigidbody2D;
+    public new Rigidbody2D rigidbody2D;
     public CapsuleCollider2D capsuleCollider;
     public Vector2 moveDirection;
     public LayerMask whatIsGround;
