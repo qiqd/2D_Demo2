@@ -1,0 +1,10 @@
+f=  20 camX=   -5.31 TowerX=    -8.11 TL=    -6.53 TR=    29.38 gap=7:F2 SkyX=    3.99
+f=  40 camX=   -5.31 TowerX=    -8.11 TL=    -6.53 TR=    29.38 gap=7:F2 SkyX=    3.99
+f=  60 camX=   -5.31 TowerX=    -8.11 TL=    -6.53 TR=    29.38 gap=7:F2 SkyX=    3.99
+f=  80 camX=   -5.31 TowerX=    -8.11 TL=    -6.53 TR=    29.38 gap=7:F2 SkyX=    3.99
+f= 100 camX=   -5.31 TowerX=    -8.11 TL=    -6.53 TR=    29.38 gap=7:F2 SkyX=    3.99
+f= 120 camX=   -5.31 TowerX=    -8.11 TL=    -6.53 TR=    29.38 gap=7:F2 SkyX=    3.99
+f= 140 camX=   -5.31 TowerX=    -8.11 TL=    -6.53 TR=    29.38 gap=7:F2 SkyX=    3.99
+f= 160 camX=   -5.31 TowerX=    -8.11 TL=    -6.53 TR=    29.38 gap=7:F2 SkyX=    3.99
+f= 180 camX=   -5.31 TowerX=    -8.11 TL=    -6.53 TR=    29.38 gap=7:F2 SkyX=    3.99
+f= 200 camX=   -5.31 TowerX=    -8.11 TL=    -6.53 TR=    29.38 gap=7:F2 SkyX=    3.99
