@@ -7,9 +7,10 @@ using UnityEngine;
 /// </summary>
 class PlayerIdleState : EntityState
 {
-
-    public PlayerIdleState(Player player, StateMachine stateMachine, string stateName) : base(player, stateMachine, stateName)
+    public Player player;
+    public PlayerIdleState(Player player, StateMachine stateMachine, string stateName) : base(player.animator, stateMachine, stateName)
     {
+        this.player = player;
     }
 
 

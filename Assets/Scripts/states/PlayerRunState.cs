@@ -7,14 +7,10 @@ using UnityEngine;
 /// </summary>
 class PlayerRunState : EntityState
 {
-    /// <summary>
-    /// 构造函数，调用基类构造函数完成状态初始化
-    /// </summary>
-    /// <param name="player">玩家控制器引用，用于访问玩家数据</param>
-    /// <param name="stateMachine">管理此状态的状态机实例</param>
-    /// <param name="stateName">状态名称标识</param>
-    public PlayerRunState(Player player, StateMachine stateMachine, string stateName) : base(player, stateMachine, stateName)
+    public Player player;
+    public PlayerRunState(Player player, StateMachine stateMachine, string stateName) : base(player.animator, stateMachine, stateName)
     {
+        this.player = player;
     }
 
     public override void Update()

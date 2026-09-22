@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class PlayerAttackState : EntityState
 {
+
+    public Player player;
     /// <summary>连击段位：0 = 第1段，1 = 第2段，2 = 第3段；达到 maxComboCount 视为需要重置</summary>
     private int attackIndex = 0;
 
@@ -15,8 +17,9 @@ public class PlayerAttackState : EntityState
     private const int maxComboCount = 3;
 
     private bool comboAttack = false;
-    public PlayerAttackState(Player player, StateMachine stateMachine, string condition) : base(player, stateMachine, condition)
+    public PlayerAttackState(Player player, StateMachine stateMachine, string condition) : base(player.animator, stateMachine, condition)
     {
+        this.player = player;
     }
 
     public override void Enter()

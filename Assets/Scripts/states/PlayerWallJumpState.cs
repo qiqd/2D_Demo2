@@ -1,7 +1,9 @@
 public class PlayerWallJumpState : EntityState
 {
-    public PlayerWallJumpState(Player player, StateMachine stateMachine, string condition) : base(player, stateMachine, condition)
+    public Player player;
+    public PlayerWallJumpState(Player player, StateMachine stateMachine, string condition) : base(player.animator, stateMachine, condition)
     {
+        this.player = player;
     }
 
     public override void Enter()

@@ -2,9 +2,11 @@ using UnityEngine;
 
 public class PlayerDashState : EntityState
 {
+    public Player player;
     private float timer = 0;
-    public PlayerDashState(Player player, StateMachine stateMachine, string condition) : base(player, stateMachine, condition)
+    public PlayerDashState(Player player, StateMachine stateMachine, string condition) : base(player.animator, stateMachine, condition)
     {
+        this.player = player;
     }
 
     public override void Enter()

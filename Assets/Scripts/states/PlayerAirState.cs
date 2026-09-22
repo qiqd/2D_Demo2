@@ -3,10 +3,11 @@ using UnityEngine;
 
 class PlayerAirState : EntityState
 {
-    public PlayerAirState(Player player, StateMachine stateMachine, string condition) : base(player, stateMachine, condition)
+    public Player player;
+    public PlayerAirState(Player player, StateMachine stateMachine, string condition) : base(player.animator, stateMachine, condition)
     {
+        this.player = player;
     }
-
 
     public override void Update()
     {
