@@ -16,13 +16,6 @@ public class Player : Entity
     public EntityState dashState;
     public EntityState jumpAttackState;
     public PlayerInput inputActions;
-    [SerializeField]
-    public float moveSpeed = 4f;
-    [SerializeField]
-    public float jumpSpeed = 10f;
-    [SerializeField]
-    [Min(0)]
-    public float dashSpeed = 10f;
     [Min(0.1f)]
     public float dashTime = 0.25f;
     public AnimationClip attackClip;
@@ -51,8 +44,14 @@ public class Player : Entity
     public override void Update()
     {
         base.Update();
+        DetectGroundAndWall(true);
     }
 
+    public override void DetectGroundAndWall(bool center)
+    {
+        base.DetectGroundAndWall(center);
+        animator.SetBool("isSliding", isWallDetected);
+    }
     void OnEnable()
     {
         inputActions.Enable();
