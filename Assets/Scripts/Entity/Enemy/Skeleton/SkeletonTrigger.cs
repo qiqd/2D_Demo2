@@ -1,6 +1,4 @@
-using UnityEngine;
-
-class PlayerAttackTrigger : EntityAnimationTrigger
+public class SkeletonTrigger : EntityAnimationTrigger
 {
     private void AttackOver()
     {

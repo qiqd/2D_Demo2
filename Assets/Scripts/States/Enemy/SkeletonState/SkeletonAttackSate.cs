@@ -7,9 +7,17 @@ public class SkeletonAttackState : EntityState
     {
         this.skeleton = skeleton;
     }
+    public override void Enter()
+    {
+        base.Enter();
+        stateMachine.currentState.stateTriggerCalled = false;
+    }
 
     public override void Update()
     {
-
+        if (stateMachine.currentState.stateTriggerCalled)
+        {
+            stateMachine.ChangeState(skeleton.idleState);
+        }
     }
 }

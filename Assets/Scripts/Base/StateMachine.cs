@@ -23,8 +23,11 @@ public class StateMachine
     /// <param name="newState">要切换到的目标状态</param>
     public void ChangeState(EntityState newState)
     {
-        currentState.Exit();
-        currentState = newState;
-        currentState.Enter();
+        if (currentState != null)
+        {
+            currentState.Exit();
+            currentState = newState;
+            currentState.Enter();
+        }
     }
 }

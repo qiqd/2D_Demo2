@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -37,7 +38,7 @@ public class Player : Entity
     }
     public override void Start()
     {
-        base.Awake();
+        base.Start();
         stateMachine.Initialize(idleState);
     }
 
@@ -51,6 +52,22 @@ public class Player : Entity
     {
         base.DetectGroundAndWall(center);
         animator.SetBool("isSliding", isWallDetected);
+    }
+
+    public override void FlipEntity()
+    {
+        var currentScale = transform.localScale;
+        if (moveDirection.x > 0f && !facingRight)
+        {
+            transform.localScale = new Vector3(Math.Abs(currentScale.x), currentScale.y, currentScale.z);
+            facingRight = !facingRight;
+        }
+        else if (moveDirection.x < 0f && facingRight)
+        {
+            transform.localScale = new Vector3(-Math.Abs(currentScale.x), currentScale.y, currentScale.z);
+            facingRight = !facingRight;
+        }
+
     }
     void OnEnable()
     {

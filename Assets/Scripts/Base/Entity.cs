@@ -34,29 +34,19 @@ public abstract class Entity : MonoBehaviour
 
     public virtual void Start()
     {
-
     }
 
     public virtual void Update()
     {
         FlipEntity();
-        stateMachine.currentState.Update();
+        // 状态机在 Awake 中创建；Initialize 之前 currentState 可能为 null（例如 Awake 被跳过或初始化顺序异常）
+        if (stateMachine != null && stateMachine.currentState != null)
+            stateMachine.currentState.Update();
     }
 
-    public virtual void FlipEntity()
-    {
-        if (moveDirection.x > 0f && !facingRight)
-        {
-            transform.localScale = new Vector3(1f, 1f, 1f);
-            facingRight = !facingRight;
-        }
-        else if (moveDirection.x < 0f && facingRight)
-        {
-            transform.localScale = new Vector3(-1f, 1f, 1f);
-            facingRight = !facingRight;
-        }
+    public abstract void FlipEntity();
 
-    }
+
 
     public virtual void DrawGizmos()
     {
@@ -70,25 +60,28 @@ public abstract class Entity : MonoBehaviour
     public Vector2 GetFootPoint(bool center)
     {
         if (capsuleCollider == null) return (Vector2)transform.position;
-        Vector2 centerV = (Vector2)transform.position + capsuleCollider.offset;
-        float radius = capsuleCollider.size.x * 0.5f;
-        float height = capsuleCollider.size.y * 0.5f;
+
+        // 使用世界空间的 bounds, 自动包含 transform 的缩放(如 Skeleton 的 1.22)
+        Bounds b = capsuleCollider.bounds;
+        float radius = b.extents.x;
         if (center)
         {
-            return centerV + new Vector2(0f, -height - 0.02f);
+            return new Vector2(b.center.x, b.min.y - 0.02f);
         }
         else
         {
-            return centerV + new Vector2(facingRight ? radius : -radius, -height - 0.02f);
+            return new Vector2(b.center.x + (facingRight ? radius : -radius), b.min.y - 0.02f);
         }
     }
 
     public Vector2 GetFrontPoint()
     {
         if (capsuleCollider == null) return (Vector2)transform.position;
-        Vector2 center = (Vector2)transform.position + capsuleCollider.offset;
-        float radius = capsuleCollider.size.x * 0.5f;
-        return center + new Vector2(moveDirection.x * radius + 0.02f, 0f);
+
+        // 使用世界空间的 bounds, 自动包含 transform 的缩放
+        Bounds b = capsuleCollider.bounds;
+        float radius = b.extents.x;
+        return new Vector2(b.center.x + (facingRight ? radius + 0.02f : -radius - 0.02f), b.center.y);
     }
 
 
