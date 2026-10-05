@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class SkeletonIdleState : EntityState
+public class SkeletonIdleState : EnemyState
 {
     private Skeleton skeleton;
     private float timer = 0;
-    private float maxIdleTime = 3;
+    // private float maxIdleTime = 3;
     public SkeletonIdleState(Skeleton skeleton, StateMachine stateMachine, string condition) : base(skeleton.animator, stateMachine, condition)
     {
         this.skeleton = skeleton;
