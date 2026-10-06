@@ -8,6 +8,7 @@ public class EntityAnimationTrigger : MonoBehaviour
     void Awake()
     {
         entity = GetComponentInParent<Entity>();
+        // entityCombat = GetComponent<EntityCombat>();
     }
 
     protected void OnTriggerCalled()
@@ -17,6 +18,6 @@ public class EntityAnimationTrigger : MonoBehaviour
 
     protected void OnAttackOver()
     {
-        entityCombat.GetColliders();
+        entityCombat.PerformAttack();
     }
 }

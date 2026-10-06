@@ -913,9 +913,11 @@ GameObject:
   - component: {fileID: 1140825974}
   - component: {fileID: 1140825973}
   - component: {fileID: 1140825972}
+  - component: {fileID: 1140825976}
+  - component: {fileID: 1140825975}
   m_Layer: 8
   m_Name: EnemySkeleton
-  m_TagString: Untagged
+  m_TagString: SkeletonEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -966,7 +968,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 128
-  playerCheckDistance: 4
+  playerCheckDistance: 2
   isPlayerDetected: 0
   vectorDistance: {x: 0, y: 0, z: 0}
 --- !u!70 &1140825973
@@ -1031,6 +1033,37 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1140825975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1140825970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d713a04208bea2c4fbc66e7d2b421b01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHP: 100
+  currentHP: 100
+  entityVFX: {fileID: 0}
+--- !u!114 &1140825976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1140825970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7ad91ffa19b2224880886d45322269f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 0}
+  originalMaterial: {fileID: 0}
+  damageMaterial: {fileID: 2100000, guid: 466dd52a16a10cd47b495ad2e5c48a44, type: 2}
+  damageTime: 0.5
 --- !u!1 &1238325610
 GameObject:
   m_ObjectHideFlags: 0
@@ -1080,6 +1113,7 @@ MonoBehaviour:
   targetLayer:
     serializedVersion: 2
     m_Bits: 256
+  damage: 10
 --- !u!1 &1393952372
 GameObject:
   m_ObjectHideFlags: 0
@@ -2921,9 +2955,11 @@ GameObject:
   - component: {fileID: 1574781361}
   - component: {fileID: 1574781362}
   - component: {fileID: 1574781363}
+  - component: {fileID: 1574781365}
+  - component: {fileID: 1574781364}
   m_Layer: 7
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3034,6 +3070,37 @@ MonoBehaviour:
   facingRight: 1
   dashTime: 2
   attackClip: {fileID: 7400000, guid: 22806bfa8531db34ba4a43afe960c962, type: 2}
+--- !u!114 &1574781364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1574781359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7ad91ffa19b2224880886d45322269f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 0}
+  originalMaterial: {fileID: 0}
+  damageMaterial: {fileID: 2100000, guid: 466dd52a16a10cd47b495ad2e5c48a44, type: 2}
+  damageTime: 0.5
+--- !u!114 &1574781365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1574781359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d713a04208bea2c4fbc66e7d2b421b01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHP: 100
+  currentHP: 100
+  entityVFX: {fileID: 0}
 --- !u!1 &1650329109
 GameObject:
   m_ObjectHideFlags: 0
@@ -3211,6 +3278,7 @@ MonoBehaviour:
   targetLayer:
     serializedVersion: 2
     m_Bits: 128
+  damage: 10
 --- !u!1 &2058944377
 GameObject:
   m_ObjectHideFlags: 0
