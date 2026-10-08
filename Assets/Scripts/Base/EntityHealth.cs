@@ -1,15 +1,23 @@
+using System;
 using UnityEngine;
 using UnityEngine.Rendering;
 
 public class EntityHealth : MonoBehaviour
 {
-    public int maxHP = 100;
-    public int currentHP = 100;
+    public int maxHP;
+    public int currentHP;
     public EntityVFX entityVFX;
 
     void Awake()
     {
         entityVFX = GetComponent<EntityVFX>();
+        var stats = GetComponent<EntityStats>();
+        if (stats != null)
+        {
+            maxHP = Convert.ToInt32(stats.GetMaxHP());
+            currentHP = maxHP;
+        }
+
     }
 
     public virtual void ReduceHP(int damage)
